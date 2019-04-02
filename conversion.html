@@ -8,11 +8,16 @@
   <script>
     var track = function(eventName) {
       var img = new Image();
-      img.src = 'https://www.facebook.com/tr?id=209319636174030&noscript=1&ev=' + eventName;
+      var sb = document.getElementById('sb').value;
+      var origin = 'https://www.facebook.com' 
+      if (sb) {
+        origin = 'https://www.' + origin + '.facebook.com';
+      }
+      img.src = origin + '/tr?id=209319636174030&noscript=1&ev=' + eventName;
     }
     track('PageView');
   </script>
-  <h2>Page Version: 4</h2>
+  <h2>Page Version: 5</h2>
   <h3>Actions</h3>
   <label for="sb">Sandbox: </label><input id="sb" type="text"><br>
   <button type="button" onclick="track('Lead');">Track Lead</button>
